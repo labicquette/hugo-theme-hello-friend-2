@@ -1,5 +1,5 @@
-{{ $albumUrl := print "static/img/" ($.Get 0) }}
-{{ $realDir := print "img/" ($.Get 0) }}
+{{ $albumUrl := print "resources/_gen/assets/img/" }}
+{{ $realDir := print "resources/_gen/img/" }}
 {{ range readDir $albumUrl }}
     {{ $subdir := print $albumUrl "/" .Name }}
     {{ $realDir := print $realDir "/" .Name }}
