@@ -1,0 +1,12 @@
+{{ $albumUrl := print "static/img/" ($.Get 0) }}
+{{ $realDir := print "img/" ($.Get 0) }}
+{{ range readDir $albumUrl }}
+    {{ $subdir := print $albumUrl "/" .Name }}
+    {{ $realDir := print $realDir "/" .Name }}
+        {{ range readDir $subdir }}
+            {{ $imgURL := print $realDir "/" .Name | absURL }}
+            <p><img src="{{ $imgURL }}"/></p>
+
+        {{ end }}
+            
+{{ end }}
